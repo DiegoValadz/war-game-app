@@ -1,0 +1,54 @@
+
+
+  
+  .heart {
+    text-align: center;
+    align-self: center;
+    font-size: 2em;
+    color: red;
+  }
+
+  .heart-mini {
+
+    font-size: 13px;
+    color: red;
+  }
+
+
+  .heart-center {
+    text-align: center;
+    align-self: center;
+    color: red;
+    font-size: 180px; 
+    margin-top: 10%;
+  }
+
+  .heart-center-mini {
+    text-align: flex-end;
+    align-self: flex-end;
+    color: red;
+    font-size: 50px;
+    padding-right: 100px;
+ 
+  }
+
+  .game-card-letters-mini{
+    font-size: 10px;
+  }
+  
+  .top-left {
+    padding: 0.1em;
+  }
+
+  .top-left-mini {
+    padding: 0;
+  }
+  
+  .bottom-right {
+    align-self: end;
+    transform: rotate(180deg);
+  }
+  
+  .black{
+    color: black;
+  }

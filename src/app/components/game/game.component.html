@@ -1,0 +1,109 @@
+<section>
+    <app-loading *ngIf="isLoading"></app-loading>
+    <div *ngIf="!isLoading">
+
+        <div style="background-color:#424242 ; width: 100%; height: 60px; display: flex; justify-content: center;">
+            <div *ngFor="let score of scores"
+                style="display: flex; flex-direction: column; align-items: center; color: white; margin-right: 2%;">
+                <p style="font-size: 15px;">{{score.name}}</p>
+                <p style="font-size: 20px;">{{score.totalVictories}}</p>
+            </div>
+        </div>
+
+        <mat-chip-list class="mt-4" style="display: flex; justify-content: center;">
+            <mat-chip *ngIf="game.winner!==null" style="background-color: rgb(74, 216, 93);">Winner will be: {{
+                game.winner.firstName }} {{ game.winner.lastName }}</mat-chip>
+
+            <mat-chip *ngIf="game.winner===null" style="background-color: rgb(74, 216, 93);">Winner will be: Draw!
+            </mat-chip>
+        </mat-chip-list>
+
+        <br />
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12" style="display: flex; justify-content: center;">
+                    <div>
+                        <div class="row mb-1">
+                            <mat-chip-list style="display: flex; justify-content: center;">
+                                <mat-chip style="background-color: rgb(74, 180, 216);"> {{ game.players[0].name }}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+
+                        <div class="row deck-container">
+                            <div *ngFor="let cardsOfPlayer of game.players[0].deck" class="col-4">
+                                <app-card [type]="cardsOfPlayer.name | cardSymbol" isMini="true"
+                                    [card]="cardsOfPlayer"></app-card>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CENTER AREA -->
+
+                <div  class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-6"><app-card [type]="leftCard.name | cardSymbol"
+                                [card]="leftCard"></app-card></div>
+                        <div class="col-lg-6"><app-card [type]="rightCard.name | cardSymbol"
+                                [card]=" rightCard"></app-card></div>
+                    </div>
+                    <!-- <div class="row" style="display: flex; justify-content: center;">
+                        <button (click)="finishGame()"style="width: 50%; color: white; margin-top: 1%;" mat-raised-button color="primary">Finish Simulation!</button>
+
+                    </div> -->
+
+
+                    <mat-list style="height: 300px; overflow-y: scroll;" class="events-conatiner">
+                        <div style="color: rgb(110, 110, 110);" mat-subheader>Events</div>
+                        <div *ngFor="let event of eventsToDisplay ">
+
+                            <mat-list-item class="mb-3">
+                                <mat-icon color="accent" matListItemIcon>style</mat-icon>
+                                <div style="display: flex; flex-direction: column;">
+                                    <div style="color: black"><strong class="mr-2">EVENT:</strong>{{event.action}}</div>
+                                    <span style="color: black"><strong class="mr-2">BY:</strong> {{event.player}}</span>
+                                    <span style="color: black"><strong class="mr-2">CARD:</strong> {{event.card}}</span>
+                                </div>
+                            </mat-list-item>
+                            <hr>
+
+                        </div>
+
+
+                    </mat-list>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- END CENTER AREA -->
+
+
+                <div class="col-lg-3 col-12" style="display: flex; justify-content: center;">
+                    <div>
+                        <div class="row mb-1">
+                            <mat-chip-list style="display: flex; justify-content: center;">
+                                <mat-chip style="background-color: rgb(136, 74, 216);"> {{ game.players[1].name }}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                        <div class="row deck-container">
+
+                            <div *ngFor="let cardsOfPlayer of game.players[1].deck" class="col-4">
+                                <app-card [type]="cardsOfPlayer.name | cardSymbol" isMini="true"
+                                    [card]="cardsOfPlayer"></app-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

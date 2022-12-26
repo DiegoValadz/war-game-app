@@ -1,0 +1,22 @@
+
+    
+    <div *ngIf="card" style="margin-bottom: 10px;" [ngClass]="{'grid-item': !isMini, 'grid-mini-item': isMini}">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;"  class="game-card-letters">{{card.shortName | slice:0:1}}<br>
+            <p  *ngIf="!isMini" [ngClass]="{'heart': !isMini, 'heart-mini': isMini,'black': type === '♠' || type === '♣'}">{{card.name | cardSymbol}}</p>
+        </div>
+        <div ></div>
+        <div ></div>
+        <div ></div>
+        <p [ngClass]="{'heart-center': !isMini, 'heart-center-mini': isMini, 'black': type === '♠' || type === '♣'  }" >{{card.name | cardSymbol }}</p>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div *ngIf="!isMini" style="display: flex; flex-direction: column; align-items: center; justify-content: center;" 
+        [ngClass]="{'game-card-letters-mini': isMini, 'game-card-letters': !isMini}"
+        class="bottom-right game-card-letters-mini">{{card.shortName | slice:0:1}}<br>
+            <p  [ngClass]="{'heart': !isMini, 'heart-mini': isMini,'black': type === '♠' || type === '♣'}">{{card.name | cardSymbol }}</p>
+        </div>
+    </div>
+   
+
+   

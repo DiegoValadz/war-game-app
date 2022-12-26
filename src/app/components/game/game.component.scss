@@ -1,0 +1,27 @@
+app-card{
+    display: flex; justify-content: center;
+}
+
+
+.deck-container{
+    width:240px; 
+    height:400px; 
+    padding-top: 2%;
+    background-color:rgb(204, 201, 201); 
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-mdc-list-item-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .events-container {
+    flex-grow: 1;
+    max-height: 300px;
+
+    overflow-y: scroll ;
+    overflow-x: hidden ;
+  }
